@@ -29,13 +29,13 @@ public class SecurityConfig {
         // 認証
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/").permitAll()
-                .requestMatchers("/sample").permitAll()
+                .requestMatchers("/test").permitAll()
         );
 
         // csrfを無効にしておく
         // またCookieを利用してcsrf対策を行う
-        http.csrf((csrf) -> csrf
-                .ignoringRequestMatchers("/api/**"));
+//        http.csrf((csrf) -> csrf
+//                .ignoringRequestMatchers("/api/**"));
         return http.build();
     }
 

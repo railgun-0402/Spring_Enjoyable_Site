@@ -1,4 +1,4 @@
-package com.su.enjoy.domain.model.user;
+package com.su.enjoy.model.user;
 
 public class SampleUser {
     private String name;
