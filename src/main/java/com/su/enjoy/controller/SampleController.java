@@ -1,18 +1,21 @@
-package com.su.enjoy.domain.controller;
+package com.su.enjoy.controller;
 
 import com.su.enjoy.ResultObject;
 import com.su.enjoy.SampleForm;
 import com.su.enjoy.domain.dto.user.UserEntity;
-import com.su.enjoy.domain.repository.user.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.su.enjoy.mapper.UserRepository;
+import com.su.enjoy.service.SampleService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.su.enjoy.domain.model.user.User;
 
 @RestController
 public class SampleController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final SampleService sampleService;
+
+    public SampleController(SampleService sampleService) {
+        this.sampleService = sampleService;
+    }
 
     @PostMapping("/sample")
     @CrossOrigin
@@ -22,11 +25,5 @@ public class SampleController {
         resultObject.setName("zenn");
         resultObject.setLank(id);
         return resultObject;
-    }
-
-    @GetMapping("/test")
-    public User get() {
-        UserEntity userEntity = userRepository.findByName("zenn");
-        return userEntity.toUser();
     }
 }
