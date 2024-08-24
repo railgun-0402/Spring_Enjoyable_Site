@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+            <!-- Bootstrap -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+            <!-- Google Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    
+            <link th:href="@{/css/style.css}" rel="stylesheet" >
+    
+            <title>ホテル一覧</title>
+        </head>
+    <body>
+        <div class="samuraitravel-wrapper">
+                <!-- ヘッダー -->
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm samuraitravel-navbar">
+                    <div class="container samuraitravel-container">
+                        <a class="navbar-brand" th:href="@{/}">
+                            <img class="samuraitravel-logo me-1" th:src="@{/images/logo.png}" alt="SAMURAI Travel">
+                        </a>
+                    </div>
+                </nav>
+    
+                <main>
+                    <div class="container pt-4 pb-5 samuraitravel-container">
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-9 col-xl-10 col-lg-11">
+    
+                                <h1 class="mb-4 text-center">民宿一覧</h1>
+    
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn text-white shadow-sm mb-3 samuraitravel-btn">登録</a>
+                                </div>
+    
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">民宿名</th>
+                                            <th scope="col">郵便番号</th>
+                                            <th scope="col">住所</th>
+                                            <th scope="col">電話番号</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                </thead>
+                                    <tbody>
+                                    <tr th:each="hotel : ${hotels}">
+                                            <td th:text="${hotel.getId()}"></td>
+                                            <td th:text="${hotel.getName()}"></td>
+                                            <td th:text="${hotel.getPostalCode()}"></td>
+                                            <td th:text="${hotel.getAddress()}"></td>
+                                            <td th:text="${hotel.getPhoneNumber()}"></td>
+                                            <td><a href="#">詳細</a></td>
+                                        </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+    
+                <!-- フッター -->
+                <footer>
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-center text-muted small mb-0">&copy; SAMURAI Travel All rights reserved.</p>
+                    </div>
+                </footer>
+            </div>
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>

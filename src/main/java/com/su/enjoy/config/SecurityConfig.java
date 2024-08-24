@@ -9,6 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 
 @Configuration
@@ -26,12 +27,13 @@ public class SecurityConfig {
         http
                 .csrf((csrf) -> csrf
                         .ignoringRequestMatchers("/sample")
-                        .ignoringRequestMatchers("/test")
+                        .ignoringRequestMatchers("/admin/**")
                 );
         // 認証
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/test").permitAll()
+                .requestMatchers("/admin/**").permitAll()
         );
         return http.build();
     }
@@ -46,5 +48,12 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
         corsSource.registerCorsConfiguration("/**", corsConfiguration);
         return corsSource;
+    }
+
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("classpath:/static/css/")
+                .setCachePeriod(3600)
+                .resourceChain(true);
     }
 }
