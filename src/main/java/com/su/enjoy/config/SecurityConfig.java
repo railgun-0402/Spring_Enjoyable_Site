@@ -22,20 +22,17 @@ public class SecurityConfig {
         http.cors((cors) -> cors
                 .configurationSource(this.corsConfigurationSource())
         );
+        // またCookieを利用してcsrf対策を行う
         http
                 .csrf((csrf) -> csrf
                         .ignoringRequestMatchers("/sample")
+                        .ignoringRequestMatchers("/test")
                 );
         // 認証
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/test").permitAll()
         );
-
-        // csrfを無効にしておく
-        // またCookieを利用してcsrf対策を行う
-//        http.csrf((csrf) -> csrf
-//                .ignoringRequestMatchers("/api/**"));
         return http.build();
     }
 
@@ -44,7 +41,7 @@ public class SecurityConfig {
         corsConfiguration.addAllowedMethod(CorsConfiguration.ALL);
         corsConfiguration.addAllowedHeader(CorsConfiguration.ALL);
         corsConfiguration.addExposedHeader("X-AUTH-TOKEN");
-        corsConfiguration.addAllowedOrigin("http://localhost:8081");
+        corsConfiguration.addAllowedOrigin("http://localhost:3000");
         corsConfiguration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
         corsSource.registerCorsConfiguration("/**", corsConfiguration);
