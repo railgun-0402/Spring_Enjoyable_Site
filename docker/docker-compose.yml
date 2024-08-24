@@ -3,10 +3,10 @@ services:
     image: postgres:13
     ports:
       - 5432:5432
-    container_name: zenn_postgre
+    container_name: enjoy_postgre
     volumes:
       - ./data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: zenn
-      POSTGRES_PASSWORD: zenn
-      POSTGRES_DB: zenn
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: enjoy

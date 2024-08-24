@@ -1,6 +1,10 @@
 spring:
+  sql:
+    init:
+      mode: always
+      encoding: utf-8
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/zenn
-    username: zenn
-    password: zenn
+    url: jdbc:postgresql://localhost:5432/enjoy
+    username: root
+    password: password
