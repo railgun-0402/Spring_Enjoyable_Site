@@ -6,5 +6,9 @@ import java.util.List;
 
 @Mapper
 public interface HotelRepository {
+    /** Hotelデータ全て取得 */
     List<Hotel> findAll();
+
+    /** Hotelデータをidから取得 */
+    Hotel findHotelById(int id);
 }

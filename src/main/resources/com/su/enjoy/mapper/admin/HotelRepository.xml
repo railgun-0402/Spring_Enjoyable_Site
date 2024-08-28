@@ -7,4 +7,10 @@
         select * from hotels
     </select>
 
+    <!--findById-->
+    <select id="findHotelById" resultType="com.su.enjoy.model.hotel.Hotel">
+        select * from hotels where id = #{id}
+    </select>
+
+
 </mapper>
