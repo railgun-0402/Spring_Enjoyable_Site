@@ -2,14 +2,11 @@ package com.su.enjoy.controller.admin;
 
 import com.su.enjoy.mapper.admin.HotelRepository;
 import com.su.enjoy.model.hotel.Hotel;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/admin/hotels")
 public class AdminHotelController {
     private final HotelRepository hotelRepository;
@@ -18,11 +15,24 @@ public class AdminHotelController {
         this.hotelRepository = hotelRepository;
     }
 
+    /**
+     * 旅館施設の管理画面Top
+     *
+     * @return List<Hotel>
+     */
     @GetMapping
-    public String index(Model model) {
-        List<Hotel> hotels = hotelRepository.findAll();
+    public List<Hotel> index() {
+        // TODO: Controllerからrepositoryにアクセスしたくない
+        return hotelRepository.findAll();
+    }
 
-        model.addAttribute("hotels", hotels);
-        return "admin/hotels/index";
+    /**
+     * 旅館施設の詳細画面
+     *
+     * @return Hotel
+     */
+    @GetMapping("/detail/{id}")
+    public Hotel detail(@PathVariable("id") int id) {
+        return hotelRepository.findHotelById(id);
     }
 }
