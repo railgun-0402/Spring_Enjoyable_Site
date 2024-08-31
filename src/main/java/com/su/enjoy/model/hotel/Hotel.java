@@ -21,7 +21,7 @@ public class Hotel {
     private String name;
 
     /** 画像ファイル名 */
-    private String imageName;
+    private String image_name;
 
     /** ホテルの説明 */
     private String description;
@@ -33,7 +33,7 @@ public class Hotel {
     private Integer capacity;
 
     /** 郵便番号 */
-    private String postalCode;
+    private String postal_code;
 
     /** 住所 */
     private String address;
@@ -64,11 +64,11 @@ public class Hotel {
     }
 
     public String getImageName() {
-        return imageName;
+        return image_name;
     }
 
     public void setImageName(String imageName) {
-        this.imageName = imageName;
+        this.image_name = imageName;
     }
 
     public String getDescription() {
@@ -96,11 +96,11 @@ public class Hotel {
     }
 
     public String getPostalCode() {
-        return postalCode;
+        return postal_code;
     }
 
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+        this.postal_code = postalCode;
     }
 
     public String getAddress() {
