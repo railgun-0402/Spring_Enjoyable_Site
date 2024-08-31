@@ -8,6 +8,7 @@ class AdminHotelControllerTest {
 
     @Test
     void TryAdminHotelControllerTest() {
+        // test
         int hoge = 1;
         assertEquals(1, hoge);
     }
