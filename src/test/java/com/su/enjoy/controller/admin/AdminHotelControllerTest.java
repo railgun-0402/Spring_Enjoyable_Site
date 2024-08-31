@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdminHotelControllerTest {
 
     @Test
-    void sample() {
+    void TryAdminHotelControllerTest() {
         int hoge = 1;
         assertEquals(1, hoge);
     }
