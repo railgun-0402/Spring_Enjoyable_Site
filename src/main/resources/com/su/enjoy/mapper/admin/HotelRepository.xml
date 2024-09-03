@@ -12,5 +12,29 @@
         select * from hotels where id = #{id}
     </select>
 
-
+    <!--insertHotel-->
+    <insert id="insertHotel" parameterType="com.su.enjoy.model.hotel.Hotel">
+        INSERT INTO hotels (
+        name,
+        image_name,
+        description,
+        price,
+        capacity,
+        postal_code,
+        address,
+        phone_number
+        ) VALUES (
+        #{name},
+        #{image},
+        #{description},
+        #{price},
+        #{capacity},
+        #{postalCode},
+        #{address},
+        #{phoneNumber}
+        );
+<!--        <selectKey keyProperty="id" resultType="int" order="AFTER">-->
+<!--            SELECT currval('hotels_id_seq')-->
+<!--        </selectKey>-->
+    </insert>
 </mapper>
