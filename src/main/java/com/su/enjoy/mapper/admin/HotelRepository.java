@@ -11,4 +11,7 @@ public interface HotelRepository {
 
     /** Hotelデータをidから取得 */
     Hotel findHotelById(int id);
+
+    /** Hotelデータをテーブルに登録 */
+    void save(Hotel hotel);
 }
