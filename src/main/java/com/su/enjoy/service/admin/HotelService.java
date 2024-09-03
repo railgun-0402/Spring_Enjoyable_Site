@@ -17,17 +17,7 @@ public class HotelService {
 
     @Transactional
     public void create(HotelRegisterForm hotelRegisterForm) {
-        Hotel hotel = new Hotel();
-
-        hotel.setName(hotelRegisterForm.getName());
-        hotel.setDescription(hotelRegisterForm.getDescription());
-        hotel.setPrice(hotelRegisterForm.getPrice());
-        hotel.setCapacity(hotelRegisterForm.getCapacity());
-        hotel.setPostalCode(hotelRegisterForm.getPostalCode());
-        hotel.setAddress(hotelRegisterForm.getAddress());
-        hotel.setPhoneNumber(hotelRegisterForm.getPhoneNumber());
-
-        hotelRepository.save(hotel);
+        hotelRepository.insertHotel(hotelRegisterForm);
     }
 
 }

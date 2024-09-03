@@ -4,9 +4,13 @@ import com.su.enjoy.mapper.admin.HotelRepository;
 import com.su.enjoy.model.hotel.Hotel;
 import com.su.enjoy.model.hotel.HotelRegisterForm;
 import com.su.enjoy.service.admin.HotelService;
+import jakarta.validation.Valid;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -49,14 +53,17 @@ public class AdminHotelController {
      * @return int 画面に返却するHTTPステータスコード
      */
     @PostMapping("/register")
-    public int register(@Validated @RequestParam HotelRegisterForm params, BindingResult bindingResult) {
+    public int register(
+            @RequestBody @Validated HotelRegisterForm hotelRegisterForm,
+            Errors errors
+    ) {
         try {
             // バリデーションエラーの場合は400エラー
-            if (bindingResult.hasErrors()) {
+            if (errors.hasErrors()) {
                 return 400;
             }
             // 受け取った値をDBに登録
-            hotelService.create(params);
+            hotelService.create(hotelRegisterForm);
 
             return 200;
         } catch (Exception e) {

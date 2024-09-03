@@ -12,7 +12,7 @@ public class HotelRegisterForm {
     @NotBlank(message = "民宿名を入力してください。")
     private String name;
 
-    private MultipartFile image;
+    private String image;
 
     @NotBlank(message = "説明を入力してください。")
     private String description;
