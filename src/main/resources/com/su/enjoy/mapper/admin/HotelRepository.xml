@@ -13,7 +13,7 @@
     </select>
 
     <!--insertHotel-->
-    <insert id="insertHotel" parameterType="com.su.enjoy.model.hotel.Hotel">
+    <insert id="insertHotel" parameterType="com.su.enjoy.model.hotel.HotelRegisterForm">
         INSERT INTO hotels (
         name,
         image_name,
@@ -25,7 +25,7 @@
         phone_number
         ) VALUES (
         #{name},
-        #{image},
+        #{imageName},
         #{description},
         #{price},
         #{capacity},
