@@ -48,6 +48,16 @@ public class AdminHotelController {
     }
 
     /**
+     * 旅館施設の削除API
+     *
+     * @return void
+     */
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable("id") int id) {
+        hotelService.delete(id);
+    }
+
+    /**
      * 旅館施設の新規登録
      *
      * @return int 画面に返却するHTTPステータスコード

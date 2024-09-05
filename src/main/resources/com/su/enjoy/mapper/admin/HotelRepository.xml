@@ -12,6 +12,11 @@
         select * from hotels where id = #{id}
     </select>
 
+    <!-- deleteHotelById-->
+    <delete id="deleteHotelById">
+        delete from hotels where id = #{id}
+    </delete>
+
     <!--insertHotel-->
     <insert id="insertHotel" parameterType="com.su.enjoy.model.hotel.HotelRegisterForm">
         INSERT INTO hotels (

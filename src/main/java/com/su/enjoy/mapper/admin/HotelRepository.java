@@ -15,4 +15,7 @@ public interface HotelRepository {
 
     /** Hotelデータをテーブルに登録 */
     void insertHotel(HotelRegisterForm hotel);
+
+    /** idに紐づくHotelデータの削除 */
+    void deleteHotelById(int id);
 }
