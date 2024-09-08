@@ -28,15 +28,30 @@ public class SecurityConfig {
         // またCookieを利用してcsrf対策を行う
         http
                 .csrf((csrf) -> csrf
-                        .ignoringRequestMatchers("/sample")
                         .ignoringRequestMatchers("/admin/**")
+                        .ignoringRequestMatchers("/login")
                 );
         // 認証
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/").permitAll()
-                .requestMatchers("/admin/**").permitAll()
                 .requestMatchers("/login").permitAll()
+                .requestMatchers("/admin/**").permitAll()
+                .requestMatchers("/login").authenticated()
         );
+
+        // 独自フィルターの利用
+        // デフォルトのAuthenticationManagerを利用する
+        http.addFilter(new JsonAuthenticationFilter(authentication -> authentication));
+
+//        http.formLogin(login -> login
+//                .loginProcessingUrl("/login")
+//                .loginPage("/login")
+//                .failureUrl("/login?error")
+//                .permitAll()
+//        ).authorizeHttpRequests(auth -> auth
+//                .requestMatchers("/login/**").permitAll()
+//                .anyRequest().authenticated()
+//        );
         return http.build();
     }
 
