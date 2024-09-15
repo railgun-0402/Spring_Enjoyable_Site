@@ -1,9 +1,12 @@
 package com.su.enjoy.service.admin;
 
 import com.su.enjoy.mapper.admin.HotelRepository;
+import com.su.enjoy.model.hotel.Hotel;
 import com.su.enjoy.model.hotel.HotelRegisterForm;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class HotelService {
@@ -29,4 +32,12 @@ public class HotelService {
         hotelRepository.deleteHotelById(id);
     }
 
+    /**
+     * 検索ワードに紐づいたHotelデータをSELECT
+     *
+     * @return List<Hotel>
+     */
+    public List<Hotel> search(String word) {
+        return hotelRepository.searchHotelByWord(word);
+    }
 }

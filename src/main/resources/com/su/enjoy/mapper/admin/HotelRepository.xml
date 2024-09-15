@@ -17,6 +17,11 @@
         delete from hotels where id = #{id}
     </delete>
 
+    <!-- searchHotelByWord-->
+    <select id="searchHotelByWord" resultType="com.su.enjoy.model.hotel.Hotel">
+        select * from hotels where name like concat('%', #{word}, '%')
+    </select>
+
     <!--insertHotel-->
     <insert id="insertHotel" parameterType="com.su.enjoy.model.hotel.HotelRegisterForm">
         INSERT INTO hotels (
