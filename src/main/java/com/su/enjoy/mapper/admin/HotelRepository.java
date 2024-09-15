@@ -18,4 +18,7 @@ public interface HotelRepository {
 
     /** idに紐づくHotelデータの削除 */
     void deleteHotelById(int id);
+
+    /** 検索ワードに紐づくHotelデータのSELECT */
+    List<Hotel> searchHotelByWord(String word);
 }

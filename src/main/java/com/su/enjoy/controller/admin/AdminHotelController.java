@@ -54,6 +54,16 @@ public class AdminHotelController {
     }
 
     /**
+     * 施設の検索API
+     *
+     * @return List<Hotel>
+     */
+    @GetMapping("/search/{word}")
+    public List<Hotel> search(@PathVariable("word") String word) {
+        return hotelService.search(word);
+    }
+
+    /**
      * 旅館施設の新規登録
      *
      * @return int 画面に返却するHTTPステータスコード
