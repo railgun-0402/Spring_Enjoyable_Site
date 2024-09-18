@@ -12,6 +12,11 @@
         select * from hotels where id = #{id}
     </select>
 
+    <!-- updateHotelById-->
+    <update id="updateHotelById">
+        update hotels set name = #{name}, price = #{price}, capacity = #{capacity}, postal_code = #{capacity}  where id = #{id}
+    </update>
+
     <!-- deleteHotelById-->
     <delete id="deleteHotelById">
         delete from hotels where id = #{id}

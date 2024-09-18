@@ -33,6 +33,14 @@ public class HotelService {
     }
 
     /**
+     * idに紐づいたHotelデータの編集(UPDATE)
+     */
+    @Transactional
+    public void update(int id) {
+        hotelRepository.updateHotelById(id);
+    }
+
+    /**
      * 検索ワードに紐づいたHotelデータをSELECT
      *
      * @return List<Hotel>

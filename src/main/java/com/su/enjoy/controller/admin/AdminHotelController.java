@@ -44,6 +44,16 @@ public class AdminHotelController {
     }
 
     /**
+     * 旅館施設の編集画面
+     *
+     * @return void
+     */
+    @GetMapping("/update/{id}")
+    public void update(@PathVariable("id") int id) {
+        hotelService.update(id);
+    }
+
+    /**
      * 旅館施設の削除API
      *
      * @return void
