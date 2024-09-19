@@ -1,13 +1,13 @@
 package com.su.enjoy.mapper.admin;
 
 import com.su.enjoy.model.hotel.Hotel;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.su.enjoy.model.hotel.HotelEditForm;
 import com.su.enjoy.model.hotel.HotelRegisterForm;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface HotelRepository extends JpaRepository<Hotel, Integer> {
+public interface HotelRepository {
     /** Hotelデータ全て取得 */
     List<Hotel> findAll();
 
@@ -15,7 +15,7 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
     Hotel findHotelById(int id);
 
     /** Hotelデータを編集 */
-    void updateHotelById(int id);
+    void updateHotelById(Hotel hotel);
 
     /** Hotelデータをテーブルに登録 */
     void insertHotel(HotelRegisterForm hotel);

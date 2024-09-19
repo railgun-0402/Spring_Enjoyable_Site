@@ -13,8 +13,18 @@
     </select>
 
     <!-- updateHotelById-->
-    <update id="updateHotelById">
-        update hotels set name = #{name}, price = #{price}, capacity = #{capacity}, postal_code = #{capacity}  where id = #{id}
+    <update id="updateHotelById" parameterType="com.su.enjoy.model.hotel.Hotel">
+        UPDATE hotels
+        SET
+        name = #{name},
+        image_name = #{imageName},
+        description = #{description},
+        price = #{price},
+        capacity = #{capacity},
+        postal_code = #{postalCode},
+        address = #{address},
+        phone_number = #{phoneNumber}
+        WHERE id = #{id};
     </update>
 
     <!-- deleteHotelById-->
