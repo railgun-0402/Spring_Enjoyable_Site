@@ -1,6 +1,7 @@
 package com.su.enjoy.mapper.admin;
 
 import com.su.enjoy.model.hotel.Hotel;
+import com.su.enjoy.model.hotel.HotelEditForm;
 import com.su.enjoy.model.hotel.HotelRegisterForm;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
@@ -12,6 +13,9 @@ public interface HotelRepository {
 
     /** Hotelデータをidから取得 */
     Hotel findHotelById(int id);
+
+    /** Hotelデータを編集 */
+    void updateHotelById(Hotel hotel);
 
     /** Hotelデータをテーブルに登録 */
     void insertHotel(HotelRegisterForm hotel);
