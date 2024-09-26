@@ -1,6 +1,5 @@
 package com.su.enjoy.model.user;
 
-import com.su.enjoy.model.role.Role;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,13 +20,13 @@ public class User {
     private String furigana;
 
     /** 郵便番号 */
-    private String postalCode;
+    private String postal_code;
 
     /** 住所 */
     private String address;
 
     /** 電話番号 */
-    private String phoneNumber;
+    private String phone_number;
 
     /** メールアドレス */
     private String email;
@@ -36,7 +35,7 @@ public class User {
     private String password;
 
     /** roleId */
-    private Role role;
+    private Integer role_id;
 
     /** enabled */
     private Boolean enabled;
@@ -71,12 +70,12 @@ public class User {
         this.furigana = furigana;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+    public String getPostal_code() {
+        return postal_code;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String getAddress() {
@@ -87,12 +86,12 @@ public class User {
         this.address = address;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getEmail() {
@@ -111,12 +110,12 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Integer getRole_id() {
+        return role_id;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole_id(Integer role_id) {
+        this.role_id = role_id;
     }
 
     public Boolean getEnabled() {
